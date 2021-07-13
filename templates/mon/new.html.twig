@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}New Apprenant{% endblock %}
+
+{% block body %}
+    <h1>Create new Apprenant</h1>
+
+    {{ include('mon/_form.html.twig') }}
+
+    <a href="{{ path('mon_index') }}">back to list</a>
+{% endblock %}

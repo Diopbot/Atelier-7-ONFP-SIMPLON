@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Apprenant{% endblock %}
+
+{% block body %}
+    <h1>Apprenant</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ apprenant.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ apprenant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ apprenant.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ apprenant.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ apprenant.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ apprenant.email }}</td>
+            </tr>
+            <tr>
+                <th>DateNaissance</th>
+                <td>{{ apprenant.dateNaissance ? apprenant.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>LieuNaissance</th>
+                <td>{{ apprenant.lieuNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ apprenant.sexe }}</td>
+            </tr>
+            <tr>
+                <th>NiveauEtude</th>
+                <td>{{ apprenant.niveauEtude }}</td>
+            </tr>
+            <tr>
+                <th>Attentes</th>
+                <td>{{ apprenant.attentes }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('mon_index') }}">back to list</a>
+
+    <a href="{{ path('mon_edit', {'id': apprenant.id}) }}">edit</a>
+
+    {{ include('mon/_delete_form.html.twig') }}
+{% endblock %}

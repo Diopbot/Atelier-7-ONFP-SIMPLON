@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Evaluation{% endblock %}
+
+{% block body %}
+    <h1>Edit Evaluation</h1>
+
+    {{ include('baba/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('baba_index') }}">back to list</a>
+
+    {{ include('baba/_delete_form.html.twig') }}
+{% endblock %}

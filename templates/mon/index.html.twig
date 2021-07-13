@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Apprenant index{% endblock %}
+
+{% block body %}
+    <h1>Page Apprenant</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>DateNaissance</th>
+                <th>LieuNaissance</th>
+                <th>Sexe</th>
+                <th>NiveauEtude</th>
+                <th>Attentes</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for apprenant in apprenants %}
+            <tr>
+                <td>{{ apprenant.id }}</td>
+                <td>{{ apprenant.nom }}</td>
+                <td>{{ apprenant.prenom }}</td>
+                <td>{{ apprenant.adresse }}</td>
+                <td>{{ apprenant.telephone }}</td>
+                <td>{{ apprenant.email }}</td>
+                <td>{{ apprenant.dateNaissance ? apprenant.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ apprenant.lieuNaissance }}</td>
+                <td>{{ apprenant.sexe }}</td>
+                <td>{{ apprenant.niveauEtude }}</td>
+                <td>{{ apprenant.attentes }}</td>
+                <td>
+                    <a href="{{ path('mon_show', {'id': apprenant.id}) }}">show</a>
+                    <a href="{{ path('mon_edit', {'id': apprenant.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('mon_new') }}">Create new</a>
+{% endblock %}

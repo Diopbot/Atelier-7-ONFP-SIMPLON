@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evaluation index{% endblock %}
+
+{% block body %}
+    <h1>Evaluation</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Discipline</th>
+                <th>Note</th>
+                <th>DateEvaluation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evaluation in evaluations %}
+            <tr>
+                <td>{{ evaluation.id }}</td>
+                <td>{{ evaluation.discipline }}</td>
+                <td>{{ evaluation.note }}</td>
+                <td>{{ evaluation.dateEvaluation ? evaluation.dateEvaluation|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('baba_show', {'id': evaluation.id}) }}">show</a>
+                    <a href="{{ path('baba_edit', {'id': evaluation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('baba_new') }}">Create new</a>
+{% endblock %}
